@@ -50,14 +50,15 @@ app.get('/api/animals', (req, res) => {
     if (req.query) {
         results = filterByQuery(req.query, results);
     }
+    
+    res.json(results);
+});
+app.listen(PORT, () => {
     if (process.env.NODE_ENV === 'production') {
         app.use(express.static('client/build'));
     }
     app.get('*', (request, response) => {
         response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     });
-    res.json(results);
-});
-app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
 });
