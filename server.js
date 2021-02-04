@@ -5,7 +5,6 @@ const express = require('express');
 const app = express();
 
 
-
 function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = [];
     // Note that we save the animalsArray as filteredResults here:
@@ -43,7 +42,8 @@ function filterByQuery(query, animalsArray) {
     }
     // return the filtered results:
     return filteredResults;
-}
+};
+
 
 app.get('/api/animals', (req, res) => {
     let results = animals;
@@ -53,13 +53,19 @@ app.get('/api/animals', (req, res) => {
     
     res.json(results);
 });
+
+
 app.listen(PORT, () => {
-    // added if statement, app.get //
+    // added if statement and app.get for fix attempt//
     if (process.env.NODE_ENV === 'production') {
         app.use(express.static('client/build'));
     }
     app.get('*', (request, response) => {
-        response.sendFile(path.join(__dirname, 'client/build', 'server.js'));
-    });
+        response.sendFile(path.join(__dirname, 'client/build', 'index.html')); // switched from index.html to server.js //
+    })
     console.log(`API server now on port ${PORT}!`);
 });
+
+// When trying to open repo via heroku:
+// 1st issue: cannot GET
+// 2nd issue: 500 internal server error
