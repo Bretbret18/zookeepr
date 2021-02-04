@@ -3,6 +3,9 @@ const PORT = process.env.PORT || 3001;
 const { animals } = require('./data/animals.json');
 const express = require('express');
 const app = express();
+const inquirer = require('inquirer');
+const path = require('path');
+
 
 
 function filterByQuery(query, animalsArray) {
