@@ -1,5 +1,5 @@
 {
-  "name": "zookeepr",
+  "name": "zookeepr18",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bretbret18/zookeepr"
+    "url": "git+https://github.com/Bretbret18/zookeepr18" 
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Bretbret18/zookeepr/issues"
+    "url": "https://github.com/Bretbret18/zookeepr18/issues"
   },
-  "homepage": "https://github.com/Bretbret18/zookeepr#readme",
+  "homepage": "https://github.com/Bretbret18/zookeepr18#readme",
   "dependencies": {
     "express": "^4.17.1",
     "path": "^0.12.7"
