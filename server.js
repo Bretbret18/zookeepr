@@ -6,6 +6,11 @@ const { animals } = require('./data/animals.json');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// Also MIDDLEWARE //
+// instruct the server to make public/ files static resources //
+// can now be accessed without specific server endpoint //
+app.use(express.static('public'));
+
 // called: "MIDDLEWARE" //
 // intercept POST request before it gets to the callback function //
 // parse incoming string or array dat
@@ -120,6 +125,20 @@ app.post('/api/animals', (req, res) => {
      }
  });
 
+
+ app.get('/', (req, res) => {
+     res.sendFile(path.join(__dirname, './public/index.html'));
+ });
+
+
+ app.get('/animals', (req, res) => {
+     res.sendFile(path.join(__dirname, './public/animals.html'));
+ });
+
+
+ app.get('/zookeepers', (req, res) => {
+     res.sendFile(path.join(__dirname, './public/zookeepers.html'))
+ })
 
 app.listen(PORT, () => {
     // added if statement and app.get for fix attempt//
